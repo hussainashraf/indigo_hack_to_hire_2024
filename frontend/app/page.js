@@ -22,7 +22,7 @@ export default function Home() {
 
   useEffect(() => {
     const fetchFlights = () => {
-      fetch("http://localhost:3002/api/flights")
+      fetch("https://indigo-hack-to-hire-2024.onrender.com/api/flights")
         .then((response) => response.json())
         .then((data) => {
           setFlights(data.flights);
@@ -112,13 +112,13 @@ export default function Home() {
   const handleSubscribe = async () => {
     try {
       // First, fetch the flight details
-      const flightResponse = await fetch(`http://localhost:3002/api/flights/${selectedFlight}`);
+      const flightResponse = await fetch(`https://indigo-hack-to-hire-2024.onrender.com/api/flights/${selectedFlight}`);
       if (!flightResponse.ok) {
         throw new Error("Failed to fetch flight details");
       }
       const flightData = await flightResponse.json();
   
-      const response = await fetch("http://localhost:3002/api/subscribe-sms", {
+      const response = await fetch("https://indigo-hack-to-hire-2024.onrender.com/api/subscribe-sms", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
